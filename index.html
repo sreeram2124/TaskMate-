@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+
+    <form id="taskForm">
+      <label for="taskDescription">Task Description:</label>
+      <input type="text" id="taskDescription" required>
+
+      <label for="priority">Priority:</label>
+      <select id="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+
+      <label for="deadline">Deadline:</label>
+      <input type="date" id="deadline" required>
+
+      <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="taskList">
+   
+    </ul>
+  </div>
+
+  <script src="script.js">
+    document.getElementById('taskForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const taskDescription = document.getElementById('taskDescription').value;
+    const priority = document.getElementById('priority').value;
+    const deadline = document.getElementById('deadline').value;
+    
+    const taskItem = document.createElement('li');
+    taskItem.innerHTML = `
+      <span>${taskDescription}</span>
+      <span>Priority: ${priority}</span>
+      <span>Deadline: ${deadline}</span>
+      <button onclick="deleteTask(this)">Delete</button>
+    `;
+  
+    document.getElementById('taskList').appendChild(taskItem);
+  });
+  
+  function deleteTask(button) {
+    button.parentElement.remove();
+  }
+
+
+
+
+
+
+
+  const express = require('express');
+const router = express.Router();
+
+// Define routes for fetching products, adding to cart, etc.
+
+module.exports = router;
+
+
+
+
+
+const productsRoutes = require('./products');
+
+app.use('/api/products', productsRoutes);
+
+// Other routes can be added similarly
+
+  </script>
+</body>
+</html>
